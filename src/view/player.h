@@ -75,6 +75,8 @@ public slots:
 
     void checkCapsuleCollision();
 
+    void ReStart();
+
 
 private:
     QTimer *standRightTimer;

@@ -285,3 +285,59 @@ void Player::checkCapsuleCollision() {
         }
     }
 }
+
+void Player::ReStart() {
+
+    if (!Flag->checkPoint) {
+        moveRightTimer->stop();
+        standRightTimer->start();
+        end = 100;
+        place = 100;
+        setPos(100, y());
+        over = false;
+        decorators[1]->restart(0);
+        for (int i = 0; i < 7; ++i) {
+            plats[i]->Reset();
+        }
+        Flag->makeRed();
+        Flag->checkPoint = false;
+        Flag->Reset();
+        Hooki->Reset(Hooki->X);
+        checkHookihookiTimer->start();
+        Hooki->Right->start();
+        cap->Reset(cap->X);
+        checkCapsuleTimer->start();
+        cap->show();
+        caps = false;
+        game->playGroundScene->addItem(Hooki);
+        return;
+    }
+    over = false;
+    gravityAnimation->setStartValue(y() - 500);
+    setPos(800, y());
+    Flag->restart();
+    if (caps == false) {
+        checkCapsuleTimer->start();
+        cap->Reset(cap->X - Flag->X + 800);
+    }
+    if (!Hooki->dead){
+        checkHookihookiTimer->start();
+        Hooki->Reset(Hooki->X - Flag->X + 800);
+    }
+    for (int i = 0; i < 7; i++) {
+        if (end > Flag->X and place == 800)
+            plats[i]->restart(end - Flag->X);
+        else if (end > Flag->X and place < 800 and place > 100)
+            plats[i]->restart(end + 800 - place - Flag->X);
+        else if (end < Flag->X and place == 100)
+            plats[i]->restart2(Flag->X - (end + 700));
+        else if (end < Flag->X and place < 800 and place > 100)
+            plats[i]->restart2(Flag->X - (end - place + 800));
+        else if (end < Flag->X and place == 800)
+            plats[i]->restart2(Flag->X - (end));
+    }
+    decorators[1]->restart(Flag->X - 800);
+    place = 800;
+    end = Flag->X;
+}
+
