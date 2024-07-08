@@ -1,10 +1,13 @@
 
-#ifndef GIT_AMIN_HEART_H
-#define GIT_AMIN_HEART_H
+#ifndef AMIN_DOPINGI_HEART_H
+#define AMIN_DOPINGI_HEART_H
+
+#include <QGraphicsPixmapItem>
 
 
-class heart {
-
+class heart : public QGraphicsPixmapItem {
+public:
+    heart(int ,int);
 };
 
 
