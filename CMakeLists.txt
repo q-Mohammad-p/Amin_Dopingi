@@ -24,7 +24,9 @@ add_executable(git_amin main.cpp
         src/view/backGround.cpp
         src/view/backGround.h
         src/view/platForm.cpp
-        src/view/platForm.h)
+        src/view/platForm.h
+        src/view/hills.cpp
+        src/view/hills.h)
 target_link_libraries(git_amin
         Qt::Core
         Qt::Gui
