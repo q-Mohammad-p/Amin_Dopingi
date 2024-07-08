@@ -61,4 +61,14 @@ Player::Player(Game *g, vector<PlatForm *> vect, vector <Decorator *> deco, flag
 
     pos.y = sceneHaight - pixmap1.height() - 125;
 
+
+    gravityAnimation = new QPropertyAnimation(this, "height", this);
+    gravityAnimation->setStartValue(pos.y);
+    gravityAnimation->setEndValue(pos.y);
+    gravityAnimation->setDuration(200);
+    connect(gravityAnimation, &QPropertyAnimation::finished, this, &Player::gravity);
+
+    jumpAnimation = new QPropertyAnimation(this, "height", this);
+
+
 }
