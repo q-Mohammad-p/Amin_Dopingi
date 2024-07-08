@@ -52,6 +52,9 @@ signals:
 
     void call_Win();
 
+    void call_Game_Over();
+
+
 public slots:
 
     void Standing_Right();

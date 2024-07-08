@@ -175,3 +175,29 @@ void Player::Standing_Left() {
     QPixmap cropped = scaledImage4->copy(current_x4, 0, 67, height);
     setPixmap(cropped);
 }
+
+void Player::gravity() {
+    if (y() == height_ + 100) {
+        over = true;
+        if (Flag->checkPoint and life > 0) {
+            emit call();
+            game->playGroundScene->removeItem(Hearts[life]);
+            life--;
+        } else if (Flag->checkPoint and life <= 0) {
+            game->playGroundScene->removeItem(Hearts[life]);
+            emit call_Game_Over();
+        } else if (life > 0) {
+            game->playGroundScene->removeItem(Hearts[life]);
+            life--;
+            emit call();
+        } else
+                emit call_Game_Over();
+    }
+    jumpAnimation->stop();
+    jumped = false;
+    gravityAnimation->setStartValue(y());
+    gravityAnimation->setEndValue(height_ + 100);
+    gravityAnimation->setDuration(600);
+    gravityAnimation->setEasingCurve(QEasingCurve::InQuad);
+    gravityAnimation->start();
+}
