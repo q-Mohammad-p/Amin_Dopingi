@@ -80,5 +80,15 @@ Player::Player(Game *g, vector<PlatForm *> vect, vector <Decorator *> deco, flag
     connect(checkCapsuleTimer, &QTimer::timeout, this, &Player::checkCapsuleCollision);
     checkCapsuleTimer->start();
 
+}
+
+void Player::Standing_Right() {
+    if (over)
+        return;
+    moveRightTimer->stop();
+    standRightTimer->start();
+    current_x = (current_x + 67) % scaledImage->width();
+    QPixmap cropped = scaledImage->copy(current_x, 0, 67, height);
+    setPixmap(cropped);
 
 }
