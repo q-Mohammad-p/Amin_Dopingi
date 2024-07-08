@@ -75,5 +75,10 @@ Player::Player(Game *g, vector<PlatForm *> vect, vector <Decorator *> deco, flag
     connect(checkHookihookiTimer, &QTimer::timeout, this, &Player::checkHookihookiCollision);
     checkHookihookiTimer->start();
 
+    checkCapsuleTimer = new QTimer(this);
+    checkCapsuleTimer->setInterval(20);
+    connect(checkCapsuleTimer, &QTimer::timeout, this, &Player::checkCapsuleCollision);
+    checkCapsuleTimer->start();
+
 
 }
