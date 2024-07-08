@@ -23,3 +23,19 @@ void ContinueWindow::continueWindow() {
     }
 
 }
+
+
+void ContinueWindow::winWindow() {
+
+    QMessageBox msgBox;
+    QPixmap imagePixmap(":/images/win");
+    msgBox.setIconPixmap(imagePixmap);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    int result = msgBox.exec();
+
+    if (result == QMessageBox::Yes) {
+        player->resetGame();
+    } else {
+        exit(0);
+    }
+}
