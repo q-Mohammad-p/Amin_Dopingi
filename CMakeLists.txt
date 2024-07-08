@@ -41,7 +41,8 @@ add_executable(git_amin main.cpp
         src/view/controller.cpp
         src/view/controller.h
         src/view/decorator.h
-        src/view/decorator.h)
+        src/view/decorator.h
+        reso.qrc)
 target_link_libraries(git_amin
         Qt::Core
         Qt::Gui
