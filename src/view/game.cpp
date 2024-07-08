@@ -71,6 +71,21 @@ Game::Game() {
     plfs.push_back(PlatForm6);
     plfs.push_back(PlatForm7);
 
+    auto Hart1 = new heart(20, 25);
+    playGroundScene->addItem(Hart1);
+
+    auto Hart2 = new heart(80, 25);
+    playGroundScene->addItem(Hart2);
+
+    auto Hart3 = new heart(140, 25);
+    playGroundScene->addItem(Hart3);
+
+
+    Hearts.push_back(Hart1);
+    Hearts.push_back(Hart2);
+    Hearts.push_back(Hart3);
+
+
     Caps = new capsule(500, 650);
     playGroundScene->addItem(Caps);
 

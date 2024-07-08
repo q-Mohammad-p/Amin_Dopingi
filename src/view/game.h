@@ -9,6 +9,11 @@
 #include "capsule.h"
 #include "hookihooki.h"
 #include "platForm.h"
+#include "flag.h"
+#include "flag.h"
+#include "heart.h"
+
+
 
 using namespace std;
 
@@ -30,11 +35,14 @@ public:
 
     vector<PlatForm *>plfs;
 
+    vector<heart *> Hearts;
+
     flag *f;
 
     hookihooki *Hooki;
 
     capsule *Caps;
+
 
 };
 
