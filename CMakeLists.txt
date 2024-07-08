@@ -34,7 +34,14 @@ add_executable(git_amin main.cpp
         src/view/capsule.cpp
         src/view/capsule.h
         src/view/hookihooki.cpp
-        src/view/hookihooki.h)
+        src/view/hookihooki.h
+        src/view/continueWindow.cpp
+        src/view/continueWindow.h
+        src/view/continueWindow.h
+        src/view/controller.cpp
+        src/view/controller.h
+        src/view/decorator.h
+        src/view/decorator.h)
 target_link_libraries(git_amin
         Qt::Core
         Qt::Gui
