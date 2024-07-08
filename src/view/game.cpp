@@ -1,4 +1,9 @@
 #include "game.h"
+#include "controller.h"
+#include <QtWidgets>
+#include <vector>
+#include "ContinueWindow.h"
+
 Game::Game() {
 
     showFullScreen();
@@ -20,6 +25,15 @@ Game::Game() {
 
     auto hills = new Hills(height(), width());
     playGroundScene->addItem(hills);
+
+    Caps = new capsule(500, 650);
+    playGroundScene->addItem(Caps);
+
+
+
+
+
+
 
 
 }

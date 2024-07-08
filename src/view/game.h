@@ -3,9 +3,15 @@
 #define GIT_AMIN_GAME_H
 
 #include<QGraphicsView>
+#include <QTimer>
+#include <QPropertyAnimation>
 #include <vector>
 #include "backGround.h"
-#include "hills.h"
+#include "flag.h"
+#include "platForm.h"
+#include "heart.h"
+#include "capsule.h"
+#include "hookihooki.h"
 
 
 class Game : public QGraphicsView {
@@ -21,6 +27,9 @@ public:
     QGraphicsScene *playGroundScene;
 
     QGraphicsView *playGround;
+
+
+    capsule *Caps;
 
 };
 
