@@ -96,6 +96,7 @@ Game::Game() {
     auto player = new Player(this, plfs, decorator, f, height(), width(), Hearts,130, 150,posPlayer,Hooki,Caps);
     playGroundScene->addItem(player);
 
+    auto Window = new ContinueWindow(nullptr, player);
 
     auto cont = new controller(player);
 

@@ -39,3 +39,20 @@ void ContinueWindow::winWindow() {
         exit(0);
     }
 }
+
+
+void ContinueWindow::gameOverWindow() {
+
+    QMessageBox msgBox;
+    QPixmap imagePixmap(":/images/GameOver");
+    imagePixmap = imagePixmap.scaled(500, 500, Qt::KeepAspectRatioByExpanding);
+    msgBox.setIconPixmap(imagePixmap);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    int result = msgBox.exec();
+
+    if (result == QMessageBox::Yes) {
+        player->resetGame();
+    } else {
+        exit(0);
+    }
+}
