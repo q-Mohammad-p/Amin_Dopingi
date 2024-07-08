@@ -240,3 +240,37 @@ void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
         gravityAnimation->setStartValue(y());
     }
 }
+
+void Player::checkHookihookiCollision() {
+
+    QList<QGraphicsItem *> collidingItemsList = collidingItems();
+    for (int i = 0; i < collidingItemsList.size(); ++i) {
+        if (typeid(*(collidingItemsList[i])) == typeid(hookihooki)) {
+            checkHookihookiTimer->stop();
+            Hooki->Right->stop();
+            Hooki->Left->stop();
+            if (this->y() >= 540 and this->y() < 590) {
+                Hooki->dead = true;
+                game->playGroundScene->removeItem(Hooki);
+            } else if (caps == false and life > 0) {
+                game->playGroundScene->removeItem(Hearts[life]);
+                life--;
+                standRightTimer->stop();
+                moveRightTimer->stop();
+                standLeftTimer->stop();
+                moveLeftTimer->stop();
+                emit call();
+            } else if (caps == true) {
+                Hooki->dead = true;
+                game->playGroundScene->removeItem(Hooki);
+            }
+            else if (caps == false and life <= 0) {
+                standRightTimer->stop();
+                moveRightTimer->stop();
+                standLeftTimer->stop();
+                moveLeftTimer->stop();
+                emit call_Game_Over();
+            }
+        }
+    }
+}
