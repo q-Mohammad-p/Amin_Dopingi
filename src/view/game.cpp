@@ -77,6 +77,15 @@ Game::Game() {
     Hooki = new hookihooki(1800,680);
     playGroundScene->addItem(Hooki);
 
+    Position posPlayer;
+    auto player = new Player(this, plfs, decorator, f, height(), width(), Hearts,130, 150,posPlayer,Hooki,Caps);
+    playGroundScene->addItem(player);
+
+
+    auto cont = new controller(player);
+
+    playGroundScene->addItem(cont);
+
 
 
 
