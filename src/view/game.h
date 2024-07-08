@@ -30,6 +30,8 @@ public:
 
     vector<PlatForm *>plfs;
 
+    flag *f;
+
     hookihooki *Hooki;
 
     capsule *Caps;

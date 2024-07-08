@@ -57,6 +57,11 @@ Game::Game() {
     auto PlatForm7 = new PlatForm(PosPlat7);
     playGroundScene->addItem(PlatForm7);
 
+    Position flagPos(2500, gameScene->height() - 230);
+    f = new flag(flagPos);
+
+    playGroundScene->addItem(f);
+
 
     plfs.push_back(PlatForm1);
     plfs.push_back(PlatForm2);
