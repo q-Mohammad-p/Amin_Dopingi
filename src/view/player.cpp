@@ -49,4 +49,16 @@ Player::Player(Game *g, vector<PlatForm *> vect, vector <Decorator *> deco, flag
     moveRightTimer = new QTimer(this);
     moveRightTimer->setInterval(10);
     connect(moveRightTimer, &QTimer::timeout, this, &Player::Run_Right);
+
+    standLeftTimer = new QTimer(this);
+    standLeftTimer->setInterval(10);
+    connect(standLeftTimer, &QTimer::timeout, this, &Player::Standing_Left);
+
+
+    moveLeftTimer = new QTimer(this);
+    moveLeftTimer->setInterval(10);
+    connect(moveLeftTimer, &QTimer::timeout, this, &Player::Run_Left);
+
+    pos.y = sceneHaight - pixmap1.height() - 125;
+
 }
