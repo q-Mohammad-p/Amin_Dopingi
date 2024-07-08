@@ -341,3 +341,35 @@ void Player::ReStart() {
     end = Flag->X;
 }
 
+void Player::resetGame() {
+    moveRightTimer->stop();
+    standRightTimer->start();
+    end = 100;
+    place = 100;
+    setPos(100, y());
+    over = false;
+    decorators[1]->restart(0);
+    for (int i = 0; i < 7; ++i) {
+        plats[i]->Reset();
+    }
+    Flag->makeRed();
+    Flag->checkPoint = false;
+    Flag->Reset();
+    cap->Reset(cap->X);
+    checkCapsuleTimer->start();
+    if(caps) {
+        caps = false;
+        cap->show();
+    }
+    Hooki->Reset(Hooki->X);
+    checkHookihookiTimer->start();
+    Hooki->Right->start();
+    if(Hooki->dead) {
+        Hooki->dead = false;
+        game->playGroundScene->addItem(Hooki);
+    }
+    for (int i = 0; i < 3; ++i) {
+        game->playGroundScene->addItem(Hearts[i]);
+    }
+    life = 2;
+}

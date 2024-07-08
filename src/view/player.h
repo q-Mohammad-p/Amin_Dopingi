@@ -77,6 +77,8 @@ public slots:
 
     void ReStart();
 
+    void resetGame();
+
 
 private:
     QTimer *standRightTimer;
