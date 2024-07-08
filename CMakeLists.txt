@@ -18,7 +18,9 @@ add_executable(git_amin main.cpp
         src/view/game.cpp
         src/view/game.h
         src/view/player.cpp
-        src/view/player.h)
+        src/view/player.h
+        src/view/bodyObject.h
+        src/view/position.h)
 target_link_libraries(git_amin
         Qt::Core
         Qt::Gui
