@@ -30,7 +30,11 @@ add_executable(git_amin main.cpp
         src/view/flag.cpp
         src/view/flag.h
         src/view/heart.cpp
-        src/view/heart.h)
+        src/view/heart.h
+        src/view/capsule.cpp
+        src/view/capsule.h
+        src/view/hookihooki.cpp
+        src/view/hookihooki.h)
 target_link_libraries(git_amin
         Qt::Core
         Qt::Gui

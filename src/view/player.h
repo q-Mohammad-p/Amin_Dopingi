@@ -8,7 +8,16 @@
 #include <QList>
 #include <QPropertyAnimation>
 #include <vector>
+#include "backGround.h"
 #include "bodyObject.h"
+#include "platForm.h"
+#include"game.h"
+#include "hills.h"
+#include "flag.h"
+#include "heart.h"
+#include "bodyObject.h"
+#include "capsule.h"
+#include "hookihooki.h"
 
 class Player : public QObject, public QGraphicsPixmapItem , public BodyObject {
 Q_OBJECT
