@@ -14,4 +14,7 @@ Game::Game() {
 
     gameScene = new QGraphicsScene(this);
     gameScene->setSceneRect(0, 0, width(), height());
+
+    auto backGround = new BackGround(height(), width());
+    playGroundScene->addItem(backGround);
 }
