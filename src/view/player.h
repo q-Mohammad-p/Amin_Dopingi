@@ -45,6 +45,24 @@ public:
     capsule *cap;
     bool caps{false};
 
+public slots:
+
+    void Standing_Right();
+
+    void Standing_Left();
+
+    void Run_Right();
+
+    void Run_Left();
+
+    void Jump();
+
+    void gravity();
+
+    void checkHookihookiCollision();
+
+    void checkCapsuleCollision();
+
 
 private:
     QTimer *standRightTimer;
