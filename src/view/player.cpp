@@ -373,3 +373,22 @@ void Player::resetGame() {
     }
     life = 2;
 }
+
+Player::~Player(){
+    delete scaledImage;
+    delete scaledImage2;
+    delete scaledImage3;
+    delete scaledImage4;
+
+    delete standRightTimer;
+    delete standLeftTimer;
+
+    delete moveRightTimer;
+    delete moveLeftTimer;
+
+    delete gravityAnimation;
+    delete jumpAnimation;
+
+    delete checkCapsuleTimer;
+    delete checkHookihookiTimer;
+}

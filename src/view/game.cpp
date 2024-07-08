@@ -98,15 +98,39 @@ Game::Game() {
 
     auto Window = new ContinueWindow(nullptr, player);
 
+    playGroundScene->setSceneRect(0, 0, backGround->pixmap().width(), backGround->pixmap().height());
+    playGround->setFixedSize(playGroundScene->width(), playGroundScene->height());
+
+    gameScene->addWidget(playGround);
+
     auto cont = new controller(player);
 
     playGroundScene->addItem(cont);
 
+    playGround->setFocus();
+
+    setScene(gameScene);
+}
+
+Game::~Game() {
+    for (int i = 0; i < 7; ++i) {
+        delete plfs[i];
+    }
+
+    for (int i = 0; i < 3; ++i) {
+        delete Hearts[i];
+    }
 
 
+    delete gameScene;
 
+    delete playGroundScene;
 
+    delete playGround;
 
+    delete f;
 
+    delete Hooki;
 
+    delete Caps;
 }
