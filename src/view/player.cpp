@@ -274,3 +274,14 @@ void Player::checkHookihookiCollision() {
         }
     }
 }
+
+void Player::checkCapsuleCollision() {
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for (int i = 0; i < colliding_items.size(); ++i) {
+        if (typeid(*(colliding_items[i])) == typeid(capsule)) {
+            caps = true;
+            checkCapsuleTimer->stop();
+            colliding_items[i]->hide();
+        }
+    }
+}
