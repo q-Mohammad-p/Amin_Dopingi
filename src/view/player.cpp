@@ -39,4 +39,14 @@ Player::Player(Game *g, vector<PlatForm *> vect, vector <Decorator *> deco, flag
     QPixmap pixmap3(":/images/spriteRunLeft");
     pixmap3 = pixmap3.scaled(3900, 150, Qt::KeepAspectRatioByExpanding);
     scaledImage3 = new QPixmap(pixmap3);
+
+
+    standRightTimer = new QTimer(this);
+    standRightTimer->setInterval(10);
+    connect(standRightTimer, &QTimer::timeout, this, &Player::Standing_Right);
+    standRightTimer->start();
+
+    moveRightTimer = new QTimer(this);
+    moveRightTimer->setInterval(10);
+    connect(moveRightTimer, &QTimer::timeout, this, &Player::Run_Right);
 }
