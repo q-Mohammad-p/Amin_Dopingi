@@ -201,3 +201,42 @@ void Player::gravity() {
     gravityAnimation->setEasingCurve(QEasingCurve::InQuad);
     gravityAnimation->start();
 }
+
+void Player::Jump() {
+    if (over)
+        return;
+
+    jumped = true;
+    gravityAnimation->stop();
+    jumpAnimation->stop();
+    jumpAnimation->setStartValue(y());
+    jumpAnimation->setEndValue(0);
+    jumpAnimation->setDuration(600);
+    jumpAnimation->setEasingCurve(QEasingCurve::OutQuad);
+    connect(jumpAnimation, &QPropertyAnimation::finished, this, &Player::gravity);
+    jumpAnimation->start();
+}
+
+void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    QGraphicsPixmapItem::paint(painter, option, widget);
+    if (colliding == true)
+        return;
+    for (QGraphicsItem *item: collidingItems()) {
+        PlatForm *plat = dynamic_cast<PlatForm *>(item);
+        if (plat != nullptr) {
+            colliding = true;
+            break;
+        }
+    }
+
+    if (colliding == true) {
+        gravityAnimation->stop();
+        gravityAnimation->setStartValue(y());
+        colliding = false;
+    } else if (colliding == false and jumped == false) {
+        gravityAnimation->start();
+    } else if (jumped == true) {
+        gravityAnimation->stop();
+        gravityAnimation->setStartValue(y());
+    }
+}

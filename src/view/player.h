@@ -69,6 +69,8 @@ public slots:
 
     void gravity();
 
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
     void checkHookihookiCollision();
 
     void checkCapsuleCollision();
