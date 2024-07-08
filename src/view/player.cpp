@@ -129,3 +129,37 @@ void Player::Run_Right() {
         }
     }
 }
+
+void Player::Run_Left() {
+    if (over)
+        return;
+    if (end == 100) {
+        standRightTimer->stop();
+        return;
+    } else {
+        end -= 5;
+        standLeftTimer->stop();
+        moveLeftTimer->start();
+        standRightTimer->stop();
+        moveRightTimer->stop();
+        current_x3 = (current_x3 + 130) % scaledImage3->width();
+
+        QPixmap cropped = scaledImage3->copy(current_x3, 0, width, height);
+        setPixmap(cropped);
+        if (place > 100) {
+            place -= 5;
+            setPos(place, y());
+        } else {
+            for (int i = 0; i < 2; ++i) {
+                decorators[i]->moveLeft();
+            }
+            cap->moveLeft();
+            Hooki->moveLeft();
+            Flag->moveFlagLeft();
+            for (int i = 0; i < 7; i++) {
+                plats[i]->movePlatLeft();
+            }
+        }
+    }
+}
+
