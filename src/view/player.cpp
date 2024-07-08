@@ -70,5 +70,10 @@ Player::Player(Game *g, vector<PlatForm *> vect, vector <Decorator *> deco, flag
 
     jumpAnimation = new QPropertyAnimation(this, "height", this);
 
+    checkHookihookiTimer = new QTimer(this);
+    checkHookihookiTimer->setInterval(20);
+    connect(checkHookihookiTimer, &QTimer::timeout, this, &Player::checkHookihookiCollision);
+    checkHookihookiTimer->start();
+
 
 }
