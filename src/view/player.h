@@ -38,12 +38,19 @@ public:
     vector<PlatForm *> plats;
     vector<heart *> Hearts;
     vector<Decorator *> decorators;
+    bool over{false};
 
     int life{2};
 
     hookihooki * Hooki;
     capsule *cap;
     bool caps{false};
+
+signals:
+
+    void call();
+
+    void call_Win();
 
 public slots:
 

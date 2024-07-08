@@ -92,3 +92,40 @@ void Player::Standing_Right() {
     setPixmap(cropped);
 
 }
+
+void Player::Run_Right() {
+    if (end == Flag->X) {
+        Flag->changeFlag(Flag->x(), Flag->y());
+    }
+    if (end == 3800) {
+        emit call_Win();
+        return;
+    }
+    if (over)
+        return;
+    else {
+        end += 5;
+        standRightTimer->stop();
+        moveRightTimer->start();
+        standLeftTimer->stop();
+        moveLeftTimer->stop();
+        current_x2 = (current_x2 + 130) % scaledImage2->width();
+
+        QPixmap cropped = scaledImage2->copy(current_x2, 0, width, height);
+        setPixmap(cropped);
+        if (place < 800) {
+            place += 5;
+            setPos(place, y());
+        } else {
+            cap->moveRight();
+            Hooki->moveRight();
+            for (int i = 0; i < 2; ++i) {
+                decorators[i]->moveRight();
+            }
+            Flag->moveFlagRight();
+            for (int i = 0; i < 7; i++) {
+                plats[i]->movePlatRight();
+            }
+        }
+    }
+}
