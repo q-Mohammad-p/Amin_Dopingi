@@ -1,12 +1,31 @@
+#ifndef CAPSULE_H
+#define CAPSULE_H
+
+#include <QGraphicsPixmapItem>
+
+class capsule : public QObject, public QGraphicsPixmapItem {
 
 
-#ifndef GIT_AMIN_CAPSULE_H
-#define GIT_AMIN_CAPSULE_H
+public:
+    capsule(int, int, QGraphicsItem *parent = nullptr);
 
+    int X;
+    int Y;
+    int _width;
+    int _height;
+    int current_x{};
+    QPixmap *scaledImage1;
+    void Reset(int);
 
-class capsule {
+public slots:
+
+    void moveRight();
+
+    void moveLeft();
+
+    void hide();
 
 };
 
-
 #endif
+
