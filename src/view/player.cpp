@@ -31,4 +31,8 @@ Player::Player(Game *g, vector<PlatForm *> vect, vector <Decorator *> deco, flag
     QPixmap pixmap4(":/images/spriteStandLeft");
     pixmap4 = pixmap4.scaled(4020, 150, Qt::KeepAspectRatioByExpanding);
     scaledImage4 = new QPixmap(pixmap4);
+
+    QPixmap pixmap2(":/images/spriteRunRight");
+    pixmap2 = pixmap2.scaled(3900, 150, Qt::KeepAspectRatioByExpanding);
+    scaledImage2 = new QPixmap(pixmap2);
 }
