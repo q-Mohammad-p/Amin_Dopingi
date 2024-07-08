@@ -29,4 +29,8 @@ void controller::keyReleaseEvent(QKeyEvent *event) {
     } else if (event->key() == Qt::Key_W or event->key() == Qt::Key_Up) {
         p->gravity();
     }
+
+    if (event->key() == Qt::Key_Escape) {
+        exit(0);
+    }
 }
