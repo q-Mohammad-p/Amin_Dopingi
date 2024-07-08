@@ -17,4 +17,9 @@ Game::Game() {
 
     auto backGround = new BackGround(height(), width());
     playGroundScene->addItem(backGround);
+
+    auto hills = new Hills(height(), width());
+    playGroundScene->addItem(hills);
+
+
 }

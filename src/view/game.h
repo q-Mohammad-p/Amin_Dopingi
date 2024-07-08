@@ -5,6 +5,7 @@
 #include<QGraphicsView>
 #include <vector>
 #include "backGround.h"
+#include "hills.h"
 
 
 class Game : public QGraphicsView {
