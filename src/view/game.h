@@ -28,6 +28,7 @@ public:
 
     QGraphicsView *playGround;
 
+    hookihooki *Hooki;
 
     capsule *Caps;
 

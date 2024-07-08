@@ -29,6 +29,9 @@ Game::Game() {
     Caps = new capsule(500, 650);
     playGroundScene->addItem(Caps);
 
+    Hooki = new hookihooki(1800,680);
+    playGroundScene->addItem(Hooki);
+
 
 
 
