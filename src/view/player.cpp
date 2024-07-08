@@ -163,3 +163,15 @@ void Player::Run_Left() {
     }
 }
 
+void Player::Standing_Left() {
+    if (over)
+        return;
+
+    moveLeftTimer->stop();
+    standLeftTimer->start();
+
+    current_x4 = (current_x4 + 67) % scaledImage4->width();
+
+    QPixmap cropped = scaledImage4->copy(current_x4, 0, 67, height);
+    setPixmap(cropped);
+}
